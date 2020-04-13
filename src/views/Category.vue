@@ -1,21 +1,33 @@
 <template>
   <div>
-    <v-for>
-      <v-card>
-        <v-card-title>
-
-        </v-card-title>
-      </v-card>
-    </v-for>
+    <v-card v-for="(category, idx) in categories" :key="idx" @click="selectCategory(category)">
+      <v-card-title>{{ category }}</v-card-title>
+    </v-card>
   </div>
 </template>
 
 <script>
-export default {
+import Api from "@/services/Api.vue";
 
-}
+export default {
+  data: function() {
+    return {
+      categories: []
+    };
+  },
+  mounted: function() {
+    this.categories = Api.getCategoryList()
+      .then(response => (this.categories = response.trivia_categories))
+      .catch();
+  },
+  methods: {
+    selectCategory: function(myCat) {
+      localStorage.setItem("category", myCat);
+      this.$router.push("/questions");
+    }
+  }
+};
 </script>
 
 <style scoped>
-
 </style>
