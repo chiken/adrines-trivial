@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-card v-for="(category, idx) in categories" :key="idx" @click="selectCategory(category)">
-      <v-card-title>{{ category }}</v-card-title>
+    <v-card v-for="(category, idx) in categories" :key="idx" @click="selectCategory(category.id)">
+      <v-card-title>{{ category.name }}</v-card-title>
     </v-card>
   </div>
 </template>
