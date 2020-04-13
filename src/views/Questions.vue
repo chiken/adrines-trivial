@@ -32,7 +32,7 @@
 import Api from "../services/Api.vue";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       questions: [],
       e1: 1,
@@ -48,10 +48,10 @@ export default {
   },
   mounted: function() {
     Api.getQuestions({
-      token: localStorage.getItem("token"),
+      token: localStorage.getItem('token'),
       amount: 5,
-      difficulty: localStorage.getItem("difficulty"),
-      category: localStorage.getItem("category")
+      difficulty: localStorage.getItem('difficulty'),
+      category: localStorage.getItem('category')
     })
       .then(response => (this.questions = response.results))
       .catch(err => console.log(err));
@@ -63,9 +63,9 @@ export default {
       } else {
         this.e1 = n + 1
       }
-    },
+    }
   }
-};
+}
 </script>
 
 <style scoped>

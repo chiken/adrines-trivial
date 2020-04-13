@@ -7,26 +7,26 @@
 </template>
 
 <script>
-import Api from "@/services/Api.vue";
+import Api from '@/services/Api'
 
 export default {
-  data: function() {
+  data: function () {
     return {
       categories: []
-    };
+    }
   },
-  mounted: function() {
+  mounted: function () {
     this.categories = Api.getCategoryList()
       .then(response => (this.categories = response.trivia_categories))
-      .catch();
+      .catch()
   },
   methods: {
-    selectCategory: function(myCat) {
-      localStorage.setItem("category", myCat);
-      this.$router.push("/questions");
+    selectCategory: function (myCat) {
+      localStorage.setItem('category', myCat)
+      this.$router.push('/questions')
     }
   }
-};
+}
 </script>
 
 <style scoped>
