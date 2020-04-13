@@ -18,43 +18,33 @@
     </v-stepper-header>
 
     <v-stepper-items>
-      <v-stepper-content step="1">
-        <v-card class="mb-12" color="grey lighten-1" height="200px">
-          <v-card-title>Pregunta</v-card-title>
-        </v-card>
-
-        <v-btn color="primary" @click="e1 = 2">Continue</v-btn>
-
-        <v-btn text>Cancel</v-btn>
-      </v-stepper-content>
-
-      <v-stepper-content step="2">
+      <v-stepper-content v-for="(question, idx) in questions" :key="idx" :step="idx">
         <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
-
-        <v-btn color="primary" @click="e1 = 3">Continue</v-btn>
-
+        <v-btn color="primary" @click="nextStep(idx + 1)">Continue</v-btn>
         <v-btn text>Cancel</v-btn>
       </v-stepper-content>
 
-      <v-stepper-content step="3">
-        <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
-
-        <v-btn color="primary" @click="e1 = 1">Continue</v-btn>
-
-        <v-btn text>Cancel</v-btn>
-      </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
 </template>
 
 <script>
-import Api from "@/services/Api.vue";
+import Api from "../services/Api.vue";
 
 export default {
   data: function() {
     return {
-      questions: []
+      questions: [],
+      e1: 1,
+      steps: 5,
     };
+  },
+  watch: {
+    steps (val) {
+      if (this.e1 > val) {
+        this.e1 = val
+      }
+    },
   },
   mounted: function() {
     Api.getQuestions({
@@ -65,6 +55,15 @@ export default {
     })
       .then(response => (this.questions = response.results))
       .catch(err => console.log(err));
+  },
+  methods: {
+    nextStep (n) {
+      if (n === this.steps) {
+        this.e1 = 1
+      } else {
+        this.e1 = n + 1
+      }
+    },
   }
 };
 </script>
