@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Difficulty from '../views/Difficulty.vue'
+import Category from '../views/Category.vue'
+import Questions from '../views/Questions.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +26,16 @@ const routes = [
     path: '/difficulty',
     name: 'Difficulty',
     component: Difficulty
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category
+  },
+  {
+    path: '/questions',
+    name: 'Questions',
+    component: Questions
   }
 ]
 

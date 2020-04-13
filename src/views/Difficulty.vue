@@ -1,20 +1,21 @@
 <template>
-  <div>
-    <v-card class="difficulty-card">
-      <v-card-title>Title 1</v-card-title>
+  <v-content>
+
+    <v-card class="difficulty-card" color="green">
+      <v-card-title>Fácil</v-card-title>
     </v-card>
-    <v-card class="difficulty-card">
+    <v-card class="difficulty-card" color="orange">
       <v-card-title>
-        Title 2
+        Medio
       </v-card-title>
 
       </v-card>
-    <v-card class="difficulty-card">
+    <v-card class="difficulty-card" color="red">
       <v-card-title>
-        Title 3
+        Difícil
       </v-card-title>
     </v-card>
-  </div>
+  </v-content>
 </template>
 
 <script>
@@ -25,6 +26,9 @@ export default {
 
 <style lang="scss" scoped>
 .difficulty-card {
+  width: 95%;
+  border-radius: 20px;
+  margin: 0 auto 1.5em auto;
 
 }
 </style>
