@@ -48,25 +48,25 @@
 </template>
 
 <script>
-import Api from "@/services/Api.vue";
+import Api from '@/services/Api'
 
 export default {
-  data: function() {
+  data: function () {
     return {
       questions: []
-    };
+    }
   },
-  mounted: function() {
+  mounted: function () {
     Api.getQuestions({
-      token: localStorage.getItem("token"),
+      token: localStorage.getItem('token'),
       amount: 5,
-      difficulty: localStorage.getItem("difficulty"),
-      category: localStorage.getItem("category")
+      difficulty: localStorage.getItem('difficulty'),
+      category: localStorage.getItem('category')
     })
       .then(response => (this.questions = response.results))
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
   }
-};
+}
 </script>
 
 <style scoped>

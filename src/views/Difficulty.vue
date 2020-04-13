@@ -13,25 +13,25 @@
 </template>
 
 <script>
-import Api from "@/services/Api.vue";
+import Api from '@/services/Api'
 
 export default {
-  data: function() {
+  data: function () {
     return {
       difficulties: [],
-      colors: ["green", "orange", "red"]
-    };
+      colors: ['green', 'orange', 'red']
+    }
   },
-  mounted: function() {
-    this.difficulties = Api.getDifficulty();
+  mounted: function () {
+    this.difficulties = Api.getDifficulty()
   },
   methods: {
     selectDifficult: function (myDiff) {
-      localStorage.setItem("difficulty", myDiff)
+      localStorage.setItem('difficulty', myDiff)
       this.$router.push('/category')
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
