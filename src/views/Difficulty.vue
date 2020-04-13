@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Api from "@/services/Api.vue";
+import Api from "../services/Api.js";
 
 export default {
   data: function() {
@@ -23,12 +23,12 @@ export default {
     };
   },
   mounted: function() {
-    this.difficulties = Api.getDifficulty();
+    this.difficulties = Api.getDifficultyList();
   },
   methods: {
-    selectDifficult: function (myDiff) {
-      localStorage.setItem("difficulty", myDiff)
-      this.$router.push('/category')
+    selectDifficult: function(myDiff) {
+      localStorage.setItem("difficulty", myDiff);
+      this.$router.push("/category");
     }
   }
 };

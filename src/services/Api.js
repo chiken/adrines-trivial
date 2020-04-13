@@ -15,20 +15,20 @@ export default {
    async getToken () {
     const response = await apiClient.get("api.php?command=request")
     return response.data
-  }
+  },
 
   async getCategoryList () {
     const response = await apiClient.get("api_category.php")
     return response.data
-  }
+  },
 
   getDifficultyList () {
     return ["easy", "medium", "hard"]
-  }
+  },
 
   getTypeList () {
     return ["multiple", "boolean"]
-  }
+  },
 
   async getQuestions (data) {
     let myParams = {}

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Api from "@/services/Api.vue";
+import Api from "./services/Api";
 
 export default {
   name: "App",
