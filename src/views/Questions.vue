@@ -43,6 +43,22 @@
 
         <v-btn text>Cancel</v-btn>
       </v-stepper-content>
+
+      <v-stepper-content step="4">
+        <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
+
+        <v-btn color="primary" @click="e1 = 5">Continue</v-btn>
+
+        <v-btn text>Cancel</v-btn>
+      </v-stepper-content>
+
+      <v-stepper-content step="5">
+        <v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
+
+        <v-btn color="primary" >Continue</v-btn>
+
+        <v-btn text>Cancel</v-btn>
+      </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
 </template>
@@ -53,6 +69,7 @@ import Api from '@/services/Api'
 export default {
   data: function () {
     return {
+      e1: 1,
       questions: []
     }
   },

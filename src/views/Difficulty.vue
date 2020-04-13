@@ -1,5 +1,6 @@
 <template>
   <v-content>
+    <h1>Page title</h1>
     <v-card
       v-for="(difficulty, idx) in difficulties"
       :key="idx"
@@ -8,6 +9,10 @@
       @click="selectDifficult(difficulty)"
     >
       <v-card-title>{{ difficulty }}</v-card-title>
+    </v-card>
+    <v-card class="difficulty-card">
+      <v-card-title >Card title</v-card-title>
+
     </v-card>
   </v-content>
 </template>
